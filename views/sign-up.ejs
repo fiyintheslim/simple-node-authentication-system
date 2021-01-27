@@ -1,0 +1,31 @@
+<%-include("./partials/head")-%>
+<%-include("./partials/nav")-%>
+    <h1>Welcome to the sign-up page.</h1>
+    
+
+    <div>
+
+    <h2>
+        Fill in your details, 
+    </h2>
+    <form action="/signup" method="POST">
+        
+            <input type="text" placeholder=" enter username" name="username" />
+        
+       
+            <input type="text" placeholder="enter email" name="email" />
+        
+        
+            <input type="text" placeholder="enter password" name="password" />
+
+            <button>Join</button>
+        
+    </form>
+    
+        <%if(msg){%>
+            <h3><%=msg%></h3>
+            <%}%>
+
+
+</body>
+</html>
