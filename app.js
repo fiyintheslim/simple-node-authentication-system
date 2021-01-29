@@ -5,6 +5,7 @@ const bodyParser=require("body-parser");
 const dotEnv=require("dotenv");
 const mongoose=require("mongoose");
 const Model = require("./db");
+const session=require("express-session");
 //environment variables
 dotEnv.config();
 
@@ -53,7 +54,7 @@ app.post("/signup", (req, res)=>{
     let user=new Model(req.body);
     user.save(err=>{
         if(err){
-            res.send("an error occured")
+            res.send("an error occured" + err)
         }else{
             console.log(req.body);
             res.redirect("/users")
