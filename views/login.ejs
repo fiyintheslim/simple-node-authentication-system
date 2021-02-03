@@ -1,5 +1,6 @@
 <%-include("./partials/head")-%>
 <%-include("./partials/nav")-%>
+<%let msg%>
     <h1>Welcome to the login page.</h1>
     <h3>If you're not signed-up, what are you waiting for do yourself a solid, click the button below and come join the team. <a class="btns" href="/signup">Sign up</a></h3>
     <form action="/login" method="POST">
@@ -11,5 +12,8 @@
             <button>Sign in</button>
        
     </form>
+    <%if(msg){%>
+    <%=msg%>
+    <%}%>
 </body>
 </html>

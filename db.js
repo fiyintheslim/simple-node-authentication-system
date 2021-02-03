@@ -42,5 +42,27 @@ LoginSchema.pre("save", function(next){
     })
 })
 
+LoginSchema.statics.verify=function(psw, email, cb){
+    this.findOne({email:email}, function(err, user){
+        if(err){
+            return cb(err)
+        }else if(!user){
+            let erro=new Error("user not found");
+            return cb(erro)
+        }else{
+        bcrypt.compare(psw, user.password, function(err, person){
+            if(person !==true){
+                return cb(err);
+            }else{
+                console.log(person)
+                return cb(null, person)
+            }
+            
+        })
+    }
+    })
+
+}
+
 const LoginModel=mongoose.model("Users", LoginSchema);
 module.exports= LoginModel;

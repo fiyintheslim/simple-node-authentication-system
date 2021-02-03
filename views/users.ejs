@@ -1,5 +1,15 @@
 <%-include("./partials/head")-%>
 <%-include("./partials/nav")-%>
-    <%=users%>
+    <%users.forEach(user=>{%>
+        <div>
+            <h3>
+                <%=user.username%>
+            </h3>
+            <h4>
+                <%=user.email%>
+            </h4>
+        </div>
+    <%})%>
+    <a class="btns" href="/logout">Logout</a>
     </body>
 </html>
